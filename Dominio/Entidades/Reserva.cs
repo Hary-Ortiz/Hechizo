@@ -13,37 +13,37 @@ namespace Dominio.Entidades
         /// <summary>
         /// 
         /// </summary>
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public DateTime Fecha { get; private set; }
+        public DateTime Fecha { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int NumeroPersonas { get; private set; }
+        public int NumeroPersonas { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public string? Observaciones { get; private set; }
+        public string? Observaciones { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public EstadoReserva Estado { get; private set; }
+        public EstadoReserva Estado { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public int ClienteId { get; private set; }
+        public int ClienteId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
-        public Cliente Cliente { get; private set; }
+        public Cliente Cliente { get; set; }
 
         /// <summary>
         /// 

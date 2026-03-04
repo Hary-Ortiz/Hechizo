@@ -9,14 +9,13 @@ namespace Dominio.Entidades
     /// </summary>
     public class DetallePedido
     {
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
-        public int ProductoId { get; private set; }
+        public int ProductoId { get; set; }
 
-        public decimal PrecioUnitario { get; private set; }
+        public decimal PrecioUnitario { get; set; }
 
-        public int Cantidad { get; private set; }
-
+        public int Cantidad { get; set; }
         public decimal Subtotal => PrecioUnitario * Cantidad;
 
         protected DetallePedido() { }

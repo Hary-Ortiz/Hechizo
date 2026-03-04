@@ -9,19 +9,18 @@ namespace Dominio.Entidades
     /// </summary>
     public class Pedido
     {
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
-        public DateTime Fecha { get; private set; }
+        public DateTime Fecha { get; set; }
 
-        public EstadoPedido Estado { get; private set; }
+        public EstadoPedido Estado { get; set; }
 
-        public decimal Total { get; private set; }
+        public decimal Total { get; set; }
+        public int ClienteId { get; set; }
 
-        public int ClienteId { get; private set; }
+        public Cliente Cliente { get; set; }
 
-        public Cliente Cliente { get; private set; }
-
-        public ICollection<DetallePedido> Detalles { get; private set; } = new List<DetallePedido>();
+        public ICollection<DetallePedido> Detalles { get; set; } = new List<DetallePedido>();
 
         protected Pedido() { }
 

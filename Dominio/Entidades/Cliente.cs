@@ -9,17 +9,17 @@ namespace Dominio.Entidades
     /// </summary>
     public class Cliente
     {
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
-        public string Nombre { get; private set; }
+        public string Nombre { get; set; }
 
-        public string Apellido { get; private set; }
+        public string Apellido { get; set; }
 
-        public string Email { get; private set; }
+        public string Email { get; set; }
 
-        public string Telefono { get; private set; }
+        public string Telefono { get; set; }
 
-        public DateTime FechaRegistro { get; private set; }
+        public DateTime FechaRegistro { get; set; }
 
         /// <summary>
         /// Constructor
