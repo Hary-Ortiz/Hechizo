@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Dominio.Entidades.Reserva>
+
+<h2>Categorías</h2>
+
+<a asp-action="Create" class="btn btn-primary">Nueva Categoría</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,8 +1,9 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<h1>Sistema de Gestión</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <a asp-controller="Categoria" asp-action="Index">Categorías</a> |
+    <a asp-controller="Producto" asp-action="Index">Productos</a> |
+    <a asp-controller="Cliente" asp-action="Index">Clientes</a> |
+    <a asp-controller="Pedido" asp-action="Index">Pedidos</a> |
+    <a asp-controller="Reserva" asp-action="Index">Reservas</a>
 </div>

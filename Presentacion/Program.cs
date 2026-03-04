@@ -1,8 +1,14 @@
+using Aplicacion.Interfaces;
+using Aplicacion.Servicios;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<ICategoriaService, CategoriaServicio>();
+builder.Services.AddScoped<IProductoServicio, ProductoServicio>();
+builder.Services.AddScoped<IClienteService, ClienteServicio>();
+builder.Services.AddScoped<IPedidoServicio, PedidoServicio>();
+builder.Services.AddScoped<IReservaServicio, ReservaServicio>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
