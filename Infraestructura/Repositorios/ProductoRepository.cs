@@ -1,10 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Dominio.Entidades;
+using Dominio.Interfaces;
+using Infraestructura.Data;
+using Microsoft.EntityFrameworkCore;
 
-namespace Infraestructura.Repositorios
+namespace Infraestructura.Repositories
 {
-    internal class ProductoRepository
+    public class ProductoRepository : IProductoRepository
     {
+        private readonly HechizoDbContext _context;
+
+        public ProductoRepository(HechizoDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IEnumerable<Producto>> ObtenerTodosAsync()
+            => await _context.Productos.ToListAsync();
+
+        public async Task<Producto?> ObtenerPorIdAsync(int id)
+            => await _context.Productos.FindAsync(id);
+
+        public async Task AgregarAsync(Producto producto)
+        {
+            await _context.Productos.AddAsync(producto);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task ActualizarAsync(Producto producto)
+        {
+            _context.Productos.Update(producto);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task EliminarAsync(int id)
+        {
+            var entidad = await ObtenerPorIdAsync(id);
+            if (entidad != null)
+            {
+                _context.Productos.Remove(entidad);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

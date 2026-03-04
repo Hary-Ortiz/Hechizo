@@ -1,15 +1,11 @@
 ﻿using Dominio.Entidades;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using System.Text;
 
 namespace Infraestructura.Data
 {
-    public class AppDbContext : DbContext
+    public class HechizoDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options)
+        public HechizoDbContext(DbContextOptions<HechizoDbContext> options)
             : base(options)
         {
         }
@@ -25,20 +21,117 @@ namespace Infraestructura.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Categoria>()
-                .HasKey(c => c.Id);
 
-            modelBuilder.Entity<Producto>()
-                .HasKey(p => p.Id);
+            modelBuilder.Entity<Categoria>(entity =>
+            {
+                entity.HasKey(c => c.Id);
 
-            modelBuilder.Entity<Cliente>()
-                .HasKey(c => c.Id);
+                entity.Property(c => c.Id)
+                      .HasMaxLength(50)
+                      .IsRequired();
 
-            modelBuilder.Entity<Pedido>()
-                .HasKey(p => p.Id);
+                entity.Property(c => c.Nombre)
+                      .HasMaxLength(150)
+                      .IsRequired();
 
-            modelBuilder.Entity<Reserva>()
-                .HasKey(r => r.Id);
+                entity.Property(c => c.Descripcion)
+                      .HasMaxLength(300);
+            });
+
+
+            modelBuilder.Entity<Producto>(entity =>
+            {
+                entity.HasKey(p => p.Id);
+
+                entity.Property(p => p.Nombre)
+                      .HasMaxLength(150)
+                      .IsRequired();
+
+                entity.Property(p => p.Precio)
+                      .HasColumnType("decimal(18,2)")
+                      .IsRequired();
+
+                entity.Property(p => p.Descripcion)
+                      .HasMaxLength(300);
+
+                entity.Property(p => p.Categoria)
+                      .HasMaxLength(100)
+                      .IsRequired();
+            });
+
+
+
+            modelBuilder.Entity<Cliente>(entity =>
+            {
+                entity.HasKey(c => c.Id);
+
+                entity.Property(c => c.Nombre)
+                      .HasMaxLength(100)
+                      .IsRequired();
+
+                entity.Property(c => c.Apellido)
+                      .HasMaxLength(100)
+                      .IsRequired();
+
+                entity.Property(c => c.Email)
+                      .HasMaxLength(150)
+                      .IsRequired();
+
+                entity.Property(c => c.Telefono)
+                      .HasMaxLength(20)
+                      .IsRequired();
+
+                entity.Property(c => c.FechaRegistro)
+                      .IsRequired();
+            });
+
+
+
+            modelBuilder.Entity<Pedido>(entity =>
+            {
+                entity.HasKey(p => p.Id);
+
+                entity.Property(p => p.Total)
+                      .HasColumnType("decimal(18,2)");
+
+                entity.Property(p => p.Estado)
+                      .HasConversion<int>();
+
+                entity.HasOne(p => p.Cliente)
+                      .WithMany()
+                      .HasForeignKey(p => p.ClienteId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
+
+
+            modelBuilder.Entity<DetallePedido>(entity =>
+            {
+                entity.HasKey(d => d.Id);
+
+                entity.Property(d => d.PrecioUnitario)
+                      .HasColumnType("decimal(18,2)");
+
+                entity.Ignore(d => d.Subtotal); // Es calculado
+
+                entity.HasOne<Pedido>()
+                      .WithMany(p => p.Detalles)
+                      .HasForeignKey("PedidoId")
+                      .OnDelete(DeleteBehavior.Cascade);
+            });
+
+
+            modelBuilder.Entity<Reserva>(entity =>
+            {
+                entity.HasKey(r => r.Id);
+
+                entity.Property(r => r.Estado)
+                      .HasConversion<int>();
+
+                entity.HasOne(r => r.Cliente)
+                      .WithMany()
+                      .HasForeignKey(r => r.ClienteId)
+                      .OnDelete(DeleteBehavior.Restrict);
+            });
         }
     }
 }

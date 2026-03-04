@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Aplicacion.Interfaces
+namespace Dominio.Interfaces
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface ICategoriaService
+    public interface ICategoriaRepository
     {
         Task<IEnumerable<Categoria>> ObtenerTodasAsync();
         Task<Categoria?> ObtenerPorIdAsync(int id);

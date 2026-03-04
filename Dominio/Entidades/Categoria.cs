@@ -9,7 +9,7 @@ namespace Dominio.Entidades
     /// </summary>
     public class Categoria
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public string? Descripcion { get; set; }
     }

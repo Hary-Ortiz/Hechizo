@@ -3,21 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Aplicacion.Interfaces
+namespace Dominio.Interfaces
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IReservaServicio
+    public interface IReservaRepository
     {
         Task<IEnumerable<Reserva>> ObtenerTodasAsync();
         Task<Reserva?> ObtenerPorIdAsync(int id);
-
-        Task CrearAsync(DateTime fecha, int numeroPersonas, string observaciones, int clienteId);
-
-        Task ConfirmarAsync(int Id);
-        Task CancelarAsync(int Id);
-
+        Task AgregarAsync(Reserva reserva);
+        Task ActualizarAsync(Reserva reserva);
         Task EliminarAsync(int id);
     }
 }

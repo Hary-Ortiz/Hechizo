@@ -1,66 +1,53 @@
 ﻿using Aplicacion.Interfaces;
 using Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Dominio.Interfaces;
 
 namespace Aplicacion.Servicios
 {
     public class ReservaServicio : IReservaServicio
     {
-        private readonly IReservaRepository _reservaRepository;
+        private readonly IReservaRepository _repository;
 
-        public ReservaServicio(IReservaRepository reservaRepository)
+        public ReservaServicio(IReservaRepository repository)
         {
-            _reservaRepository = reservaRepository;
+            _repository = repository;
         }
 
         public async Task<IEnumerable<Reserva>> ObtenerTodasAsync()
-        {
-            return await _reservaRepository.ObtenerTodasAsync();
-        }
+            => await _repository.ObtenerTodasAsync();
 
         public async Task<Reserva?> ObtenerPorIdAsync(int id)
-        {
-            return await _reservaRepository.ObtenerPorIdAsync(id);
-        }
+            => await _repository.ObtenerPorIdAsync(id);
 
-        public async Task<int> CrearAsync(DateTime fecha, int numeroPersonas, string observaciones, int clienteId)
+        public async Task CrearAsync(DateTime fecha, int numeroPersonas, string observaciones, int clienteId)
         {
             var reserva = new Reserva(fecha, numeroPersonas, observaciones, clienteId);
-
-            await _reservaRepository.CrearAsync(reserva);
-
-            return reserva.Id;
+            await _repository.AgregarAsync(reserva);
         }
 
-        public async Task ConfirmarAsync(int reservaId)
+        public async Task ConfirmarAsync(int id)
         {
-            var reserva = await _reservaRepository.ObtenerPorIdAsync(reservaId);
+            var reserva = await _repository.ObtenerPorIdAsync(id);
 
             if (reserva == null)
                 throw new Exception("Reserva no encontrada");
 
             reserva.Confirmar();
-
-            await _reservaRepository.ActualizarAsync(reserva);
+            await _repository.ActualizarAsync(reserva);
         }
 
-        public async Task CancelarAsync(int reservaId)
+        public async Task CancelarAsync(int id)
         {
-            var reserva = await _reservaRepository.ObtenerPorIdAsync(reservaId);
+            var reserva = await _repository.ObtenerPorIdAsync(id);
 
             if (reserva == null)
                 throw new Exception("Reserva no encontrada");
 
             reserva.Cancelar();
-
-            await _reservaRepository.ActualizarAsync(reserva);
+            await _repository.ActualizarAsync(reserva);
         }
 
         public async Task EliminarAsync(int id)
-        {
-            await _reservaRepository.EliminarAsync(id);
-        }
+            => await _repository.EliminarAsync(id);
     }
 }

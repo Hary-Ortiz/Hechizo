@@ -1,8 +1,6 @@
 ﻿using Aplicacion.Interfaces;
 using Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Dominio.Interfaces;
 
 namespace Aplicacion.Servicios
 {
@@ -11,51 +9,26 @@ namespace Aplicacion.Servicios
     /// </summary>
     public class CategoriaServicio : ICategoriaService
     {
-        private readonly ICategoriaRepository _categoriaRepository;
+        private readonly ICategoriaRepository _repository;
 
-        public CategoriaServicio(ICategoriaRepository categoriaRepository)
+        public CategoriaServicio(ICategoriaRepository repository)
         {
-            _categoriaRepository = categoriaRepository;
+            _repository = repository;
         }
 
         public async Task<IEnumerable<Categoria>> ObtenerTodasAsync()
-        {
-            return await _categoriaRepository.ObtenerTodasAsync();
-        }
+            => await _repository.ObtenerTodasAsync();
 
-        public async Task<Categoria?> ObtenerPorIdAsync(string id)
-        {
-            return await _categoriaRepository.ObtenerPorIdAsync(id);
-        }
+        public async Task<Categoria?> ObtenerPorIdAsync(int id)
+            => await _repository.ObtenerPorIdAsync(id);
 
-        public async Task CrearAsync(string id, string nombre, string? descripcion)
-        {
-            var categoria = new Categoria
-            {
-                Id = id,
-                Nombre = nombre,
-                Descripcion = descripcion
-            };
+        public async Task AgregarAsync(Categoria categoria)
+            => await _repository.AgregarAsync(categoria);
 
-            await _categoriaRepository.CrearAsync(categoria);
-        }
+        public async Task ActualizarAsync(Categoria categoria)
+            => await _repository.ActualizarAsync(categoria);
 
-        public async Task ActualizarAsync(string id, string nombre, string? descripcion)
-        {
-            var categoria = await _categoriaRepository.ObtenerPorIdAsync(id);
-
-            if (categoria == null)
-                throw new Exception("Categoría no encontrada");
-
-            categoria.Nombre = nombre;
-            categoria.Descripcion = descripcion;
-
-            await _categoriaRepository.ActualizarAsync(categoria);
-        }
-
-        public async Task EliminarAsync(string id)
-        {
-            await _categoriaRepository.EliminarAsync(id);
-        }
+        public async Task EliminarAsync(int id)
+            => await _repository.EliminarAsync(id);
     }
 }

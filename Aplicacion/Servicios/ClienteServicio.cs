@@ -1,43 +1,31 @@
 ﻿using Aplicacion.Interfaces;
 using Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Dominio.Interfaces;
 
 namespace Aplicacion.Servicios
 {
-    /// <summary>
-    /// 
-    /// </summary>
     public class ClienteServicio : IClienteService
     {
-        private readonly IClienteRepository _clienteRepository;
+        private readonly IClienteRepository _repository;
 
-        public ClienteServico(IClienteRepository clienteRepository)
+        public ClienteServicio(IClienteRepository repository)
         {
-            _clienteRepository = clienteRepository;
+            _repository = repository;
         }
 
         public async Task<IEnumerable<Cliente>> ObtenerTodosAsync()
-        {
-            return await _clienteRepository.ObtenerTodosAsync();
-        }
+            => await _repository.ObtenerTodosAsync();
 
         public async Task<Cliente?> ObtenerPorIdAsync(int id)
-        {
-            return await _clienteRepository.ObtenerPorIdAsync(id);
-        }
+            => await _repository.ObtenerPorIdAsync(id);
 
-        public async Task CrearAsync(string nombre, string apellido, string email, string telefono)
+        public async Task AgregarAsync(string nombre, string apellido, string email, string telefono)
         {
             var cliente = new Cliente(nombre, apellido, email, telefono);
-
-            await _clienteRepository.CrearAsync(cliente);
+            await _repository.AgregarAsync(cliente);
         }
 
         public async Task EliminarAsync(int id)
-        {
-            await _clienteRepository.EliminarAsync(id);
-        }
+            => await _repository.EliminarAsync(id);
     }
 }

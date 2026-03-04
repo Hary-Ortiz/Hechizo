@@ -3,16 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Aplicacion.Interfaces
+namespace Dominio.Interfaces
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IClienteService
+    public interface IClienteRepository
     {
         Task<IEnumerable<Cliente>> ObtenerTodosAsync();
         Task<Cliente?> ObtenerPorIdAsync(int id);
-        Task AgregarAsync(string nombre, string apellido, string email, string telefono);
+        Task AgregarAsync(Cliente cliente);
         Task EliminarAsync(int id);
     }
 }

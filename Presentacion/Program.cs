@@ -1,5 +1,7 @@
 using Aplicacion.Interfaces;
 using Aplicacion.Servicios;
+using Infraestructura.Data;
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +11,8 @@ builder.Services.AddScoped<IProductoServicio, ProductoServicio>();
 builder.Services.AddScoped<IClienteService, ClienteServicio>();
 builder.Services.AddScoped<IPedidoServicio, PedidoServicio>();
 builder.Services.AddScoped<IReservaServicio, ReservaServicio>();
+builder.Services.AddDbContext<HechizoDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

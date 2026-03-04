@@ -3,18 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Aplicacion.Interfaces
+namespace Dominio.Interfaces
 {
     /// <summary>
     /// 
     /// </summary>
-    public interface IPedidoServicio
+    public interface IPedidoRepository
     {
         Task<IEnumerable<Pedido>> ObtenerTodosAsync();
         Task<Pedido?> ObtenerPorIdAsync(int id);
-        Task<int> CrearPedidoAsync(int clienteId);
-        Task AgregarProductoAsync(int pedidoId, Producto producto, int cantidad);
-        Task ConfirmarPedidoAsync(int pedidoId);
+        Task AgregarAsync(Pedido pedido);
+        Task ActualizarAsync(Pedido pedido);
         Task EliminarAsync(int id);
     }
 }

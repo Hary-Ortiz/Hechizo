@@ -1,73 +1,54 @@
 ﻿using Aplicacion.Interfaces;
 using Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Dominio.Interfaces;
 
 namespace Aplicacion.Servicios
 {
     public class PedidoServicio : IPedidoServicio
     {
-        private readonly IPedidoRepository _pedidoRepository;
-        private readonly IProductoRepository _productoRepository;
+        private readonly IPedidoRepository _repository;
 
-        public PedidoServicio(
-            IPedidoRepository pedidoRepository,
-            IProductoRepository productoRepository)
+        public PedidoServicio(IPedidoRepository repository)
         {
-            _pedidoRepository = pedidoRepository;
-            _productoRepository = productoRepository;
+            _repository = repository;
         }
 
         public async Task<IEnumerable<Pedido>> ObtenerTodosAsync()
-        {
-            return await _pedidoRepository.ObtenerTodosAsync();
-        }
+            => await _repository.ObtenerTodosAsync();
 
         public async Task<Pedido?> ObtenerPorIdAsync(int id)
-        {
-            return await _pedidoRepository.ObtenerPorIdAsync(id);
-        }
+            => await _repository.ObtenerPorIdAsync(id);
 
         public async Task<int> CrearPedidoAsync(int clienteId)
         {
             var pedido = new Pedido(clienteId);
-
-            await _pedidoRepository.CrearAsync(pedido);
-
+            await _repository.AgregarAsync(pedido);
             return pedido.Id;
         }
 
-        public async Task AgregarProductoAsync(int pedidoId, int productoId, int cantidad)
+        public async Task AgregarProductoAsync(int pedidoId, Producto producto, int cantidad)
         {
-            var pedido = await _pedidoRepository.ObtenerPorIdAsync(pedidoId);
+            var pedido = await _repository.ObtenerPorIdAsync(pedidoId);
+
             if (pedido == null)
                 throw new Exception("Pedido no encontrado");
 
-            var producto = await _productoRepository.ObtenerPorIdAsync(productoId);
-            if (producto == null)
-                throw new Exception("Producto no encontrado");
-
             pedido.AgregarProducto(producto, cantidad);
-
-            await _pedidoRepository.ActualizarAsync(pedido);
+            await _repository.ActualizarAsync(pedido);
         }
 
         public async Task ConfirmarPedidoAsync(int pedidoId)
         {
-            var pedido = await _pedidoRepository.ObtenerPorIdAsync(pedidoId);
+            var pedido = await _repository.ObtenerPorIdAsync(pedidoId);
 
             if (pedido == null)
                 throw new Exception("Pedido no encontrado");
 
             pedido.Confirmar();
-
-            await _pedidoRepository.ActualizarAsync(pedido);
+            await _repository.ActualizarAsync(pedido);
         }
 
         public async Task EliminarAsync(int id)
-        {
-            await _pedidoRepository.EliminarAsync(id);
-        }
+            => await _repository.EliminarAsync(id);
     }
 }
