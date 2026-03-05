@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructura.Repositories
 {
+    // Implementación del repositorio de pedidos que utiliza Entity Framework Core para realizar operaciones de acceso a datos. Este repositorio implementa la interfaz IPedidoRepository, lo que permite abstraer la lógica de acceso a datos relacionada con los pedidos y facilita la implementación de diferentes repositorios que puedan manejar esta funcionalidad.
     public class ReservaRepository : IReservaRepository
     {
         private readonly HechizoDbContext _context;

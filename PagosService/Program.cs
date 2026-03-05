@@ -1,5 +1,7 @@
 ﻿var builder = WebApplication.CreateBuilder(args);
 
+// Configuración de servicios y middleware para la aplicación web, incluyendo la adición de controladores, la configuración de Swagger para la documentación de la API y el registro del servicio de pagos para manejar la lógica de negocio relacionada con los pagos.
+
 // Servicios
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

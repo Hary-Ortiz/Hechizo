@@ -1,5 +1,7 @@
 ﻿using CarritoService.Models;
 
+// Servicio para manejar la lógica de negocio relacionada con el carrito de compras, como agregar productos, eliminar productos y obtener el contenido del carrito. El servicio utiliza una lista estática para almacenar los elementos del carrito, lo que permite simular un almacenamiento en memoria sin necesidad de una base de datos.
+
 namespace CarritoService.Services
 {
     public class CarritoService

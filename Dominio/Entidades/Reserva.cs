@@ -10,49 +10,24 @@ namespace Dominio.Entidades
     
     public class Reserva
     {
-        /// <summary>
-        /// 
-        /// </summary>
+       
         public int Id { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public DateTime Fecha { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public int NumeroPersonas { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
+       
         public string? Observaciones { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public EstadoReserva Estado { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public int ClienteId { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
         public Cliente Cliente { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
         protected Reserva() { }
 
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="fecha"></param>
         /// <param name="numeroPersonas"></param>
         /// <param name="observaciones"></param>

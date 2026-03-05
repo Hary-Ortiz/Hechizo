@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Json;
 
-
+// Controlador para manejar las operaciones relacionadas con los productos, como mostrar la lista de productos, crear un nuevo producto, editar un producto existente, mostrar los detalles de un producto, eliminar un producto y filtrar productos por categoría. El controlador se comunica con el servicio de productos a través de métodos asincrónicos para obtener la información de los productos y realizar las operaciones correspondientes. Además, el controlador incluye un método para agregar un producto al carrito de compras, que se comunica con el servicio de carrito a través de una solicitud HTTP POST para agregar el producto seleccionado al carrito.
 
 namespace Presentacion.Controllers
 {

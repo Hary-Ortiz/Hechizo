@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Presentacion.Controllers
 {
+    // Controlador para manejar las operaciones relacionadas con los pedidos, como mostrar la lista de pedidos, crear un nuevo pedido, mostrar los detalles de un pedido y confirmar un pedido. El controlador utiliza un servicio de pedidos para obtener la información necesaria y realizar las operaciones correspondientes.
     public class PedidoController : Controller
     {
         private readonly IPedidoServicio _service;

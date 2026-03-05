@@ -4,6 +4,7 @@ using Dominio.Interfaces;
 
 namespace Aplicacion.Servicios
 {
+    /// Implementación del servicio de clientes que utiliza un repositorio para realizar operaciones de acceso a datos. Este servicio implementa la interfaz IClienteService, lo que permite abstraer la lógica de negocio relacionada con los clientes y facilita la implementación de diferentes servicios que puedan manejar esta funcionalidad.
     public class ClienteServicio : IClienteService
     {
         private readonly IClienteRepository _repository;

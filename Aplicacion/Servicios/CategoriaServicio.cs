@@ -4,9 +4,7 @@ using Dominio.Interfaces;
 
 namespace Aplicacion.Servicios
 {
-    /// <summary>
-    /// 
-    /// </summary>
+    /// Implementación del servicio de categorías que utiliza un repositorio para realizar operaciones de acceso a datos. Este servicio implementa la interfaz ICategoriaService, lo que permite abstraer la lógica de negocio relacionada con las categorías y facilita la implementación de diferentes servicios que puedan manejar esta funcionalidad.
     public class CategoriaServicio : ICategoriaService
     {
         private readonly ICategoriaRepository _repository;

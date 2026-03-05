@@ -2,14 +2,18 @@
 using CarritoService.Services;
 using CarritoService.Models;
 
+//Controlador para manejar las operaciones relacionadas con el carrito de compras, como agregar productos, eliminar productos y obtener el contenido del carrito. Además, incluye un método para procesar el pago del carrito, que se comunica con el servicio de pagos a través de una solicitud HTTP POST.
 namespace CarritoService.Controllers
 {
     [ApiController]
     [Route("api/carrito")]
     public class CarritoController : ControllerBase
     {
+
+        // Inyección de dependencia del servicio de carrito para manejar la lógica de negocio relacionada con el carrito, como agregar productos, eliminar productos y obtener el contenido del carrito.
         private readonly Services.CarritoService _service;
 
+        // El constructor del controlador recibe una instancia del servicio de carrito a través de la inyección de dependencias, lo que permite al controlador utilizar los métodos del servicio para realizar las operaciones necesarias en el carrito de compras.
         public CarritoController(Services.CarritoService service)
         {
             _service = service;
@@ -34,6 +38,8 @@ namespace CarritoService.Controllers
             _service.Eliminar(productoId);
             return Ok();
         }
+
+        // Método para procesar el pago del carrito, que se comunica con el servicio de pagos a través de una solicitud HTTP POST.
 
         public async Task<IActionResult> Pagar()
         {

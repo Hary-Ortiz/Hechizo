@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructura.Data
 {
+    // Contexto de base de datos para la aplicación Hechizo, que hereda de DbContext. Este contexto define las entidades y sus configuraciones para mapearlas a la base de datos utilizando Entity Framework Core. Incluye DbSet para cada entidad principal (Categoria, Producto, Cliente, Pedido, DetallePedido y Reserva) y configura las relaciones entre ellas en el método OnModelCreating.
     public class HechizoDbContext : DbContext
     {
         public HechizoDbContext(DbContextOptions<HechizoDbContext> options)

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructura.Repositories
 {
+    // Implementación del repositorio de categorías que utiliza Entity Framework Core para realizar operaciones de acceso a datos. Este repositorio implementa la interfaz ICategoriaRepository, lo que permite abstraer la lógica de acceso a datos relacionada con las categorías y facilita la implementación de diferentes repositorios que puedan manejar esta funcionalidad.
     public class CategoriaRepository : ICategoriaRepository
     {
         private readonly HechizoDbContext _context;

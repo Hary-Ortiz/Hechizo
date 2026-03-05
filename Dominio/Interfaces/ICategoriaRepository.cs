@@ -5,9 +5,7 @@ using System.Text;
 
 namespace Dominio.Interfaces
 {
-    /// <summary>
-    /// 
-    /// </summary>
+    // Interfaz para definir los métodos que el repositorio de categorías debe implementar, como obtener todas las categorías, obtener una categoría por su ID, agregar una nueva categoría, actualizar una categoría existente y eliminar una categoría por su ID. Esta interfaz permite abstraer la lógica de acceso a datos relacionada con las categorías y facilita la implementación de diferentes repositorios que puedan manejar esta funcionalidad.
     public interface ICategoriaRepository
     {
         Task<IEnumerable<Categoria>> ObtenerTodasAsync();

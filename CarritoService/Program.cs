@@ -1,4 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
+// Configuración de servicios y middleware para la aplicación web, incluyendo la adición de controladores, la configuración de Swagger para la documentación de la API y el registro del servicio de carrito para manejar la lógica de negocio relacionada con el carrito de compras.
 
 // Servicios
 builder.Services.AddControllers();

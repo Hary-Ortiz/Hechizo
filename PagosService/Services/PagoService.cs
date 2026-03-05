@@ -1,4 +1,5 @@
 ﻿using PagosService.Models;
+// Servicio para manejar la lógica de negocio relacionada con los pagos, como procesar un pago o recuperar la lista de pagos realizados. El servicio utiliza una lista estática para almacenar los pagos, lo que permite simular un almacenamiento en memoria sin necesidad de una base de datos.
 
 namespace PagosService.Services
 {

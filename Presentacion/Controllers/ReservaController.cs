@@ -1,6 +1,8 @@
 ﻿using Aplicacion.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
+// Controlador para manejar las operaciones relacionadas con las reservas, como mostrar la lista de reservas, crear una nueva reserva, mostrar los detalles de una reserva, confirmar una reserva y cancelar una reserva. El controlador utiliza un servicio de reservas para realizar las operaciones necesarias en la lógica de negocio relacionada con las reservas, como obtener la lista de reservas, crear una nueva reserva, confirmar una reserva y cancelar una reserva.
+
 namespace Presentacion.Controllers
 {
     public class ReservaController : Controller

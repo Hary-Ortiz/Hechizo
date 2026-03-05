@@ -4,6 +4,7 @@ using Dominio.Interfaces;
 
 namespace Aplicacion.Servicios
 {
+    // Implementación del servicio de reservas que utiliza un repositorio para realizar operaciones de acceso a datos. Este servicio implementa la interfaz IReservaService, lo que permite abstraer la lógica de negocio relacionada con las reservas y facilita la implementación de diferentes servicios que puedan manejar esta funcionalidad.
     public class ReservaServicio : IReservaServicio
     {
         private readonly IReservaRepository _repository;

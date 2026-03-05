@@ -4,6 +4,7 @@ using Dominio.Interfaces;
 
 namespace Aplicacion.Servicios
 {
+    // Implementación del servicio de pedidos que utiliza un repositorio para realizar operaciones de acceso a datos. Este servicio implementa la interfaz IPedidoService, lo que permite abstraer la lógica de negocio relacionada con los pedidos y facilita la implementación de diferentes servicios que puedan manejar esta funcionalidad.
     public class PedidoServicio : IPedidoServicio
     {
         private readonly IPedidoRepository _repository;

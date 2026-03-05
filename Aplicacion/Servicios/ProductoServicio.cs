@@ -4,6 +4,7 @@ using Dominio.Interfaces;
 
 namespace Aplicacion.Servicios
 {
+    // Implementación del servicio de productos que utiliza un repositorio para realizar operaciones de acceso a datos. Este servicio implementa la interfaz IProductoService, lo que permite abstraer la lógica de negocio relacionada con los productos y facilita la implementación de diferentes servicios que puedan manejar esta funcionalidad.
     public class ProductoServicio : IProductoServicio
     {
         private readonly IProductoRepository _repository;

@@ -1,5 +1,10 @@
 ﻿@model List<Presentacion.Controllers.CarritoItem>
 
+    <!--
+        Vista para mostrar los productos en el carrito de compras.
+    Permite eliminar productos y proceder al pago.
+    -->
+
 
 <h2 class="mb-4">Tu Carrito</h2>
 
@@ -29,6 +34,11 @@ else
         </thead>
 
         <tbody>
+
+            <!--
+                Recorremos cada producto en el carrito, mostrando su imagen, nombre y precio.
+                Patrón iterator
+            -->
 
             @foreach (var item in Model)
             {
