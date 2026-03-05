@@ -26,6 +26,34 @@ namespace Presentacion.Controllers
 
             return RedirectToAction("Index");
         }
+
+        // Método para pagar el carrito
+        public async Task<IActionResult> Pagar()
+        {
+            var client = new HttpClient();
+
+            var pago = new
+            {
+                total = 10500,
+                metodo = "Tarjeta"
+            };
+
+            var response = await client.PostAsJsonAsync(
+                "https://localhost:7132/api/pago/procesar",
+                pago
+            );
+
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["mensaje"] = "Pago realizado con éxito";
+            }
+            else
+            {
+                TempData["mensaje"] = "Error al procesar el pago";
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 
     public class CarritoItem

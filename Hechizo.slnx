@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/Microservicios/">
     <Project Path="CarritoService/CarritoService.csproj" Id="ae7bcb74-f364-4680-bc28-dd0c89dacdae" />
+    <Project Path="PagosService/PagosService.csproj" Id="6bfc6d8d-f972-45ea-ad82-382b0d2902dc" />
   </Folder>
   <Project Path="Aplicacion/Aplicacion.csproj" Id="44b276d7-b030-46a1-8e20-d9e7dd1603d4" />
   <Project Path="Dominio/Dominio.csproj" Id="ffa831bc-49fa-4f51-ba85-da2055875f74" />

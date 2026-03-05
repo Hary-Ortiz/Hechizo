@@ -34,5 +34,30 @@ namespace CarritoService.Controllers
             _service.Eliminar(productoId);
             return Ok();
         }
+
+        public async Task<IActionResult> Pagar()
+        {
+            var client = new HttpClient();
+
+            var pago = new
+            {
+                monto = 10000,
+                metodo = "Tarjeta"
+            };
+
+            var response = await client.PostAsJsonAsync(
+                "https://localhost:7132/api/pago/procesar",
+                pago
+            );
+
+            if (response.IsSuccessStatusCode)
+            {
+                return Ok("Pago realizado con éxito");
+            }
+            else
+            {
+                return BadRequest("Error en el pago");
+            }
+        }
     }
 }

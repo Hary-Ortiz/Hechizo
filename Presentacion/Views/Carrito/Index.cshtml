@@ -1,6 +1,14 @@
 ﻿@model List<Presentacion.Controllers.CarritoItem>
 
+
 <h2 class="mb-4">Tu Carrito</h2>
+
+@if (TempData["mensaje"] != null)
+{
+    <div class="alert alert-success mt-3">
+        @TempData["mensaje"]
+    </div>
+}
 
 @if (!Model.Any())
 {
@@ -54,9 +62,11 @@ else
 
         <h4>Total: $@total</h4>
 
-        <button class="btn btn-success btn-lg mt-2">
+        <a asp-controller="Carrito"
+           asp-action="Pagar"
+           class="btn btn-success btn-lg mt-2">
             Pagar
-        </button>
+        </a>
 
     </div>
 }
