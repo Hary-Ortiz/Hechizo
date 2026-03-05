@@ -1,0 +1,25 @@
+services:
+
+  carrito:
+    build:
+      context: ./CarritoService
+      dockerfile: Dockerfile
+    ports:
+      - "5001:8080"
+
+  pagos:
+    build:
+      context: ./PagosService
+      dockerfile: Dockerfile
+    ports:
+      - "5002:8080"
+
+  presentacion:
+    build:
+      context: .
+      dockerfile: Presentacion/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - carrito
+      - pagos

@@ -3,7 +3,6 @@ using System.Net.Http.Json;
 
 namespace Presentacion.Controllers
 {
-    // Controlador para manejar las operaciones relacionadas con el carrito de compras, como mostrar el contenido del carrito, eliminar productos del carrito y procesar el pago del carrito. El controlador se comunica con el servicio de carrito a través de solicitudes HTTP para obtener la información del carrito y eliminar productos, y también se comunica con el servicio de pagos para procesar el pago del carrito.
     public class CarritoController : Controller
     {
         private readonly HttpClient _http;
@@ -11,7 +10,9 @@ namespace Presentacion.Controllers
         public CarritoController()
         {
             _http = new HttpClient();
-            _http.BaseAddress = new Uri("https://localhost:7185/");
+
+            // MICRO SERVICIO CARRITO
+            _http.BaseAddress = new Uri("http://carrito:8080/");
         }
 
         public async Task<IActionResult> Index()
@@ -28,7 +29,6 @@ namespace Presentacion.Controllers
             return RedirectToAction("Index");
         }
 
-        // Método para pagar el carrito
         public async Task<IActionResult> Pagar()
         {
             var client = new HttpClient();
@@ -39,8 +39,9 @@ namespace Presentacion.Controllers
                 metodo = "Tarjeta"
             };
 
+            // MICRO SERVICIO PAGOS
             var response = await client.PostAsJsonAsync(
-                "https://localhost:7132/api/pago/procesar",
+                "http://pagos:8080/api/pago/procesar",
                 pago
             );
 
