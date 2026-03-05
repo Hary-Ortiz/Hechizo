@@ -1,10 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\img\Capuccino.jpg" />
+    <None Include="wwwroot\img\Chocolate.jpg" />
+    <None Include="wwwroot\img\Galletas.jpg" />
+    <None Include="wwwroot\img\Latte.jpg" />
+    <None Include="wwwroot\img\Mochaccino.jpg" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.3" />

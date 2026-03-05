@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Presentacion</title>
+    <title>@ViewData["Title"] - Hechizo</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -12,22 +12,81 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Presentacion</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+                <div class="container">
+
+                    <!-- Logo / Título -->
+                    <a class="navbar-brand fw-bold" style="color:#6f4e37;"
+                       asp-controller="Home" asp-action="Index">
+                        Hechizo
+                    </a>
+
+                    <button class="navbar-toggler" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarContent">
+
+                        <!-- Pestañas -->
+                        <ul class="navbar-nav me-auto">
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"
+                                   asp-controller="Categoria"
+                                   asp-action="Index">
+                                    Categorías
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"
+                                   asp-controller="Producto"
+                                   asp-action="Index">
+                                    Productos
+                                </a>
+                            </li>
+
+                      
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"
+                                   asp-controller="Reserva"
+                                   asp-action="Index">
+                                    Reservas
+                                </a>
+                            </li>
+
+                        </ul>
+                        </ul>
+
+                        <!-- Barra búsqueda -->
+                        <form class="d-flex me-3">
+                            <input class="form-control me-2"
+                                   type="search"
+                                   placeholder="Buscar café..." />
+                            <button class="btn"
+                                    style="background-color:#6f4e37;color:white;"
+                                    type="submit">
+                                Buscar
+                            </button>
+                        </form>
+
+                        <!-- Carrito -->
+                        <a asp-controller="Carrito"
+                           asp-action="Index"
+                           class="btn btn-outline-dark">
+                            🛒
+                        </a>
+
+                    </div>
                 </div>
+            </nav>
+</nav>
+            
+                
+               
             </div>
         </nav>
     </header>

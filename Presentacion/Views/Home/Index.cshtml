@@ -1,9 +1,94 @@
-﻿<h1>Sistema de Gestión</h1>
-
+﻿
 <div>
-    <a asp-controller="Categoria" asp-action="Index">Categorías</a> |
-    <a asp-controller="Producto" asp-action="Index">Productos</a> |
-    <a asp-controller="Cliente" asp-action="Index">Clientes</a> |
-    <a asp-controller="Pedido" asp-action="Index">Pedidos</a> |
-    <a asp-controller="Reserva" asp-action="Index">Reservas</a>
+   <p> .✦ ݁˖</p>
+
+
+</div>
+
+<div class="text-center mt-5">
+
+    <h1 class="display-4 fw-bold">Hechizo</h1>
+    <h3> Cafetería temática   </h3>
+
+    <p class="lead mt-3">
+        Café artesanal, dulces mágicos y momentos inolvidables.
+    </p>
+
+    <a asp-controller="Producto"
+       asp-action="Index"
+       class="btn btn-lg mt-4"
+       style="background-color:#6f4e37;color:white;">
+        Ver nuestro menú
+    </a>
+
+</div>
+
+<div class="container mt-5">
+
+    <div class="row text-center">
+
+        <div class="container mt-5">
+
+            <div class="row text-center">
+
+                <!-- Café especial -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+
+                        <img src="~/img/cafe-especial.jpg"
+                             class="card-img-top"
+                             style="height:220px; object-fit:cover;" />
+
+                        <div class="card-body">
+                            <h4 class="card-title">Café especial</h4>
+                            <p class="card-text">
+                                Seleccionamos granos premium preparados por baristas.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Ambiente único -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+
+                        <img src="~/img/cafe-ambiente.jpg"
+                             class="card-img-top"
+                             style="height:220px; object-fit:cover;" />
+
+                        <div class="card-body">
+                            <h4 class="card-title">Ambiente único</h4>
+                            <p class="card-text">
+                                Un espacio místico para disfrutar y relajarte.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Postres mágicos -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm h-100">
+
+                        <img src="~/img/postres-magicos.jpg"
+                             class="card-img-top"
+                             style="height:220px; object-fit:cover;" />
+
+                        <div class="card-body">
+                            <h4 class="card-title">Postres mágicos</h4>
+                            <p class="card-text">
+                                Recetas artesanales inspiradas en lo esotérico.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>

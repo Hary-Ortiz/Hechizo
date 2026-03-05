@@ -7,7 +7,7 @@ namespace Dominio.Entidades
     /// <summary>
     /// Método que define la clase Reserva
     /// </summary>
-    /// .
+    
     public class Reserva
     {
         /// <summary>
