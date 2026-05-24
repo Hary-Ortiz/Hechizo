@@ -1,24 +1,54 @@
 ﻿@model IEnumerable<Dominio.Entidades.Reserva>
 
-<h2>Categorías</h2>
+<section class="page-hechizo container">
 
-<a asp-action="Create" class="btn btn-primary">Nueva Categoría</a>
+    <div class="d-flex justify-content-between align-items-center mb-5">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Id</td>
-                
-            </tr>
-        }
-    </tbody>
-</table>
+        <div>
+
+            <h1 class="title-hechizo">Reservas</h1>
+
+            <p class="subtitle-hechizo">
+                Mesas y experiencias reservadas por nuestros visitantes
+            </p>
+
+        </div>
+
+        <a asp-action="Create" class="btn-hechizo">
+            Nueva Reserva ✨
+        </a>
+
+    </div>
+
+    <div class="table-responsive">
+
+        <table class="table table-hechizo">
+
+            <thead>
+
+                <tr>
+                    <th>Id Reserva</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>
+                            #@item.Id
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>

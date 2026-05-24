@@ -1,44 +1,46 @@
-﻿<!--
-    Este es un archivo de vista Razor para la acción "Index" del controlador "Categoria". 
-    Muestra una lista de categorías con su imagen, nombre, descripción y un enlace para ver los productos asociados a cada categoría.
--->
-@model IEnumerable<Dominio.Entidades.Categoria>
+﻿@model IEnumerable<Dominio.Entidades.Categoria>
 
-<h2 class="mb-4">Categorías</h2>
+<section class="page-hechizo container">
 
-<div class="row">
+    <h1 class="title-hechizo">Categorías</h1>
 
-@foreach (var categoria in Model)
-{
-    <div class="col-md-4 mb-4">
+    <p class="subtitle-hechizo">
+        Descubre nuestras experiencias mágicas
+    </p>
 
-        <div class="card shadow-sm h-100">
+    <div class="row">
 
-            <img src="~/img/@categoria.Imagen"
-                 class="card-img-top"
-                 style="height:220px; object-fit:cover;" />
+        @foreach (var categoria in Model)
+        {
+            <div class="col-lg-4 col-md-6 mb-5">
 
-            <div class="card-body text-center">
+                <div class="card-hechizo">
 
-                <h5 class="card-title">@categoria.Nombre</h5>
+                    <img src="~/img/@categoria.Imagen" />
 
-                <p class="text-muted">
-                    @categoria.Descripcion
-                </p>
+                    <div class="card-content text-center">
 
-                <a asp-controller="Producto"
-                   asp-action="PorCategoria"
-                   asp-route-categoria="@categoria.Nombre"
-                   class="btn btn-hechizo">
+                        <h4>@categoria.Nombre</h4>
 
-                   Ver productos
-                </a>
+                        <p>
+                            @categoria.Descripcion
+                        </p>
+
+                        <a asp-controller="Producto"
+                               asp-action="PorCategoria"
+                               asp-route-categoria="@categoria.Nombre"
+                               class="btn-hechizo">
+
+                            Ver productos
+                        </a>
+
+                    </div>
+
+                </div>
 
             </div>
-
-        </div>
+        }
 
     </div>
-}
 
-</div>
+</section>

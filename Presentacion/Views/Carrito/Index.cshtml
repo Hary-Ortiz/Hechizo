@@ -1,82 +1,95 @@
 ﻿@model List<Presentacion.Controllers.CarritoItem>
 
-    <!--
-        Vista para mostrar los productos en el carrito de compras.
-    Permite eliminar productos y proceder al pago.
-    -->
+<section class="page-hechizo container">
 
+    <h1 class="title-hechizo">Tu Carrito</h1>
 
-<h2 class="mb-4">Tu Carrito</h2>
+    <p class="subtitle-hechizo">
+        Tus productos mágicos seleccionados ✨
+    </p>
 
-@if (TempData["mensaje"] != null)
-{
-    <div class="alert alert-success mt-3">
-        @TempData["mensaje"]
-    </div>
-}
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-success mb-4">
+            @TempData["mensaje"]
+        </div>
+    }
 
-@if (!Model.Any())
-{
-    <p>Tu carrito está vacío.</p>
-}
-else
-{
-    decimal total = 0;
+    @if (!Model.Any())
+    {
+        <div class="form-hechizo text-center">
+            <h3>Tu carrito está vacío 🛒</h3>
+        </div>
+    }
+    else
+    {
+        decimal total = 0;
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th></th>
-            </tr>
-        </thead>
+        <div class="table-responsive">
 
-        <tbody>
+            <table class="table table-hechizo">
 
-            <!--
-                Recorremos cada producto en el carrito, mostrando su imagen, nombre y precio.
-                Patrón iterator
-            -->
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th></th>
+                    </tr>
+                </thead>
 
-            @foreach (var item in Model)
-            {
-                total += item.precio;
+                <tbody>
 
-                <tr>
-                    <td>
-                        <img src="~/img/@item.imagen"
-                             style="width:80px;border-radius:8px;" />
-                    </td>
+                    @foreach (var item in Model)
+                    {
+                        total += item.precio;
 
-                    <td>@item.nombre</td>
+                        <tr>
 
-                    <td>$@item.precio</td>
+                            <td>
+                                <img src="~/img/@item.imagen"
+                                     style="width:90px;height:90px;object-fit:cover;border-radius:16px;" />
+                            </td>
 
-                    <td>
-                        <a asp-controller="Carrito"
-                           asp-action="Eliminar"
-                           asp-route-id="@item.productoId"
-                           class="btn btn-danger btn-sm">
-                            Quitar
-                        </a>
-                    </td>
-                </tr>
-            }
+                            <td>@item.nombre</td>
 
-        </tbody>
-    </table>
+                            <td class="price-hechizo">
+                                $@item.precio
+                            </td>
 
-    <div class="text-end mt-4">
+                            <td>
+                                <a asp-controller="Carrito"
+                                       asp-action="Eliminar"
+                                       asp-route-id="@item.productoId"
+                                       class="btn btn-danger-hechizo">
 
-        <h4>Total: $@total</h4>
+                                    Quitar
+                                </a>
+                            </td>
 
-        <a asp-controller="Carrito"
-           asp-action="Pagar"
-           class="btn btn-success btn-lg mt-2">
-            Pagar
-        </a>
+                        </tr>
+                    }
 
-    </div>
-}
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="text-end mt-5">
+
+            <h2 class="price-hechizo mb-4">
+                Total: $@total
+            </h2>
+
+            <a asp-controller="Carrito"
+                   asp-action="Pagar"
+                   class="btn-hechizo">
+
+                Proceder al pago ✨
+            </a>
+
+        </div>
+    }
+
+</section>

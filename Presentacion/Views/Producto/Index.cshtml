@@ -1,38 +1,54 @@
 ﻿@model IEnumerable<Dominio.Entidades.Producto>
 
-<h2 class="mb-4">Nuestros Productos </h2>
+<section class="page-hechizo container">
 
-<div class="row">
-    @foreach (var producto in Model)
-    {
+    <h1 class="title-hechizo">Nuestro Menú</h1>
 
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm h-100">
+    <p class="subtitle-hechizo">
+        Café, postres y bebidas encantadas
+    </p>
 
-                <img src="~/img/@producto.Imagen"
-                     class="card-img-top"
-                     style="height:220px; object-fit:cover;" />
+    <div class="row">
 
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title">@producto.Nombre</h5>
+        @foreach (var producto in Model)
+        {
+            <div class="col-lg-4 col-md-6 mb-5">
 
-                    <p class="card-text text-muted">
-                        @producto.Descripcion
-                    </p>
+                <div class="card-hechizo">
 
-                    <div class="mt-auto">
-                        <h6 class="text-success">$@producto.Precio</h6>
+                    <img src="~/img/@producto.Imagen" />
 
-                        <a asp-controller="Producto"
-                           asp-action="AgregarCarrito"
-                           asp-route-id="@producto.Id"
-                           class="btn btn-hechizo w-100">
-                            Agregar al carrito 🛒
-                        </a>
+                    <div class="card-content d-flex flex-column">
+
+                        <h4>@producto.Nombre</h4>
+
+                        <p>
+                            @producto.Descripcion
+                        </p>
+
+                        <div class="mt-4">
+
+                            <div class="price-hechizo mb-3">
+                                $@producto.Precio
+                            </div>
+
+                            <a asp-controller="Producto"
+                                   asp-action="AgregarCarrito"
+                                   asp-route-id="@producto.Id"
+                                   class="btn-hechizo w-100">
+
+                                Agregar al carrito 🛒
+                            </a>
+
+                        </div>
+
                     </div>
+
                 </div>
 
             </div>
-        </div>
-    }
-</div>
+        }
+
+    </div>
+
+</section>

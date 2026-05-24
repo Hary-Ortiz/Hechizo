@@ -5,96 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Hechizo</title>
     <script type="importmap"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/hechizo.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Presentacion.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-                <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-hechizo fixed-top">
 
-                    <!-- Logo / Título -->
-                    <a class="navbar-brand fw-bold" style="color:#6f4e37;"
-                       asp-controller="Home" asp-action="Index">
-                        Hechizo
-                    </a>
+            <div class="container-fluid px-5">
 
-                    <button class="navbar-toggler" type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#navbarContent">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <!-- LOGO -->
+                <a class="navbar-brand logo-hechizo" asp-controller="Home" asp-action="Index">
+                    HECHIZO
+                </a>
 
-                    <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- BOTÓN MOBILE -->
+                <button class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarHechizo">
 
-                        <!-- Pestañas -->
-                        <ul class="navbar-nav me-auto">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                            <li class="nav-item">
-                                <a class="nav-link text-dark"
-                                   asp-controller="Categoria"
-                                   asp-action="Index">
-                                    Categorías
-                                </a>
-                            </li>
+                <!-- LINKS -->
+                <div class="collapse navbar-collapse" id="navbarHechizo">
 
-                            <li class="nav-item">
-                                <a class="nav-link text-dark"
-                                   asp-controller="Producto"
-                                   asp-action="Index">
-                                    Productos
-                                </a>
-                            </li>
+                    <ul class="navbar-nav mx-auto gap-3">
 
-                      
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                                Inicio
+                            </a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link text-dark"
-                                   asp-controller="Reserva"
-                                   asp-action="Index">
-                                    Reservas
-                                </a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Producto" asp-action="Index">
+                                Menú
+                            </a>
+                        </li>
 
-                        </ul>
-                        </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Reserva" asp-action="Index">
+                                Reservas
+                            </a>
+                        </li>
 
-                        <!-- Barra búsqueda -->
-                        <form class="d-flex me-3">
-                            <input class="form-control me-2"
-                                   type="search"
-                                   placeholder="Buscar café..." />
-                            <button class="btn"
-                                    style="background-color:#6f4e37;color:white;"
-                                    type="submit">
-                                Buscar
-                            </button>
-                        </form>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Categoria" asp-action="Index">
+                                Experiencias
+                            </a>
+                        </li>
 
-                        <!-- Carrito -->
+                    </ul>
+
+                    <!-- DERECHA -->
+                    <div class="d-flex align-items-center gap-3">
+
+                        <!-- BOTÓN RESERVAR -->
+                        <a asp-controller="Reserva"
+                               asp-action="Create"
+                               class="btn btn-reserva">
+
+                            Reservar
+                        </a>
+
+                        <!-- CARRITO -->
                         <a asp-controller="Carrito"
-                           asp-action="Index"
-                           class="btn btn-outline-dark">
+                               asp-action="Index"
+                               class="cart-icon">
+
                             🛒
                         </a>
 
                     </div>
+
                 </div>
-            </nav>
-</nav>
+
+            </div>
+
+        </nav>
             
                 
                
-            </div>
-        </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    
+        <main role="main">
             @RenderBody()
         </main>
-    </div>
+    
 
     <footer class="border-top footer text-muted">
         <div class="container">

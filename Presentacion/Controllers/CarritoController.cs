@@ -12,7 +12,7 @@ namespace Presentacion.Controllers
             _http = new HttpClient();
 
             // MICRO SERVICIO CARRITO
-            _http.BaseAddress = new Uri("http://carrito:8080/");
+            _http.BaseAddress = new Uri("http://carrito:7185/");
         }
 
         public async Task<IActionResult> Index()
