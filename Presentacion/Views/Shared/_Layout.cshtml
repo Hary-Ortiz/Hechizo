@@ -96,6 +96,30 @@
     </header>
     
         <main role="main">
+        <div class="accessibility-panel">
+
+            <button id="increaseFont"
+                    class="access-btn"
+                    title="Aumentar texto">
+
+                A+
+            </button>
+
+            <button id="decreaseFont"
+                    class="access-btn"
+                    title="Disminuir texto">
+
+                A-
+            </button>
+
+            <button id="toggleContrast"
+                    class="access-btn"
+                    title="Modo alto contraste">
+
+                ✦
+            </button>
+
+        </div>
             @RenderBody()
         </main>
     
@@ -108,6 +132,43 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+
+            let currentZoom = 100;
+
+            // AUMENTAR ZOOM
+            document.getElementById("increaseFont")
+                .addEventListener("click", function () {
+
+                    currentZoom += 10;
+
+                    document.body.style.zoom =
+                        currentZoom + "%";
+                });
+
+            // DISMINUIR ZOOM
+            document.getElementById("decreaseFont")
+                .addEventListener("click", function () {
+
+                    currentZoom -= 10;
+
+                    if (currentZoom < 70) {
+                        currentZoom = 70;
+                    }
+
+                    document.body.style.zoom =
+                        currentZoom + "%";
+                });
+
+            // CONTRASTE MÁGICO
+            document.getElementById("toggleContrast")
+                .addEventListener("click", function () {
+
+                    document.body.classList
+                        .toggle("magic-contrast");
+                });
+
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
