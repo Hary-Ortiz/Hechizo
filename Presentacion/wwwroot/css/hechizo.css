@@ -446,3 +446,120 @@ main {
         background: rgba(255,255,255,.08) !important;
         color: white !important;
     }
+
+/* =========================
+   SLIDER
+========================= */
+
+.slider-section {
+    padding: 90px 8%;
+}
+
+.slider-img {
+    height: 760px;
+    object-fit: cover;
+    filter: brightness(.45);
+    transition: transform .7s;
+}
+
+.carousel-item:hover .slider-img {
+    transform: scale(1.03);
+}
+
+.carousel-caption {
+    bottom: 14%;
+    left: 8%;
+    right: auto;
+    text-align: left;
+}
+
+    .carousel-caption h2 {
+        font-family: 'Cinzel', serif;
+        font-size: 4.8rem;
+        color: white;
+        margin-bottom: 20px;
+        text-shadow: 0 0 20px rgba(0,0,0,.8);
+    }
+
+    .carousel-caption p {
+        font-size: 1.3rem;
+        color: #eee;
+        max-width: 650px;
+    }
+
+.carousel-indicators button {
+    background-color: #c8a46b !important;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: drop-shadow(0 0 10px black);
+}
+
+.carousel-inner {
+    border: 1px solid rgba(255,255,255,.06);
+    box-shadow: 0 20px 60px rgba(0,0,0,.5), 0 0 40px rgba(111,66,193,.15);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 768px) {
+
+    .slider-img {
+        height: 500px;
+    }
+
+    .carousel-caption h2 {
+        font-size: 2.4rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+}
+/* =========================
+   DIVIDER
+========================= */
+
+.hechizo-divider {
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.divider-mini {
+    color: #c8a46b;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+    font-size: .95rem;
+}
+
+.divider-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.divider-text {
+    max-width: 850px;
+    margin: auto;
+    color: rgba(255,255,255,.72);
+    line-height: 1.9;
+    font-size: 1.15rem;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 768px) {
+
+    .divider-title {
+        font-size: 2.2rem;
+    }
+
+    .divider-text {
+        font-size: 1rem;
+    }
+}

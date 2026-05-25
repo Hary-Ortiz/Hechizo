@@ -27,7 +27,9 @@
                     <a asp-controller="Producto"
                            asp-action="Index"
                            class="btn-hechizo">
+
                         Ver nuestro menú
+
                     </a>
 
                 </div>
@@ -48,6 +50,7 @@
     <div class="row g-4">
 
         <!-- Café especial -->
+
         <div class="col-md-4">
 
             <div class="card-hechizo">
@@ -71,6 +74,7 @@
 
 
         <!-- Ambiente único -->
+
         <div class="col-md-4">
 
             <div class="card-hechizo">
@@ -94,6 +98,7 @@
 
 
         <!-- Postres mágicos -->
+
         <div class="col-md-4">
 
             <div class="card-hechizo">
@@ -114,6 +119,219 @@
             </div>
 
         </div>
+
+    </div>
+
+</section>
+
+
+<!-- FRASE DIVISORIA -->
+
+<section class="hechizo-divider">
+
+    <p class="divider-mini">
+        ✦ Café • Magia • Experiencias ✦
+    </p>
+
+    <h2 class="divider-title">
+        Cada rincón de Hechizo
+        guarda una historia.
+    </h2>
+
+    <p class="divider-text">
+        Descubre eventos, coctelería, merch exclusivo
+        y experiencias diseñadas para transformar
+        lo cotidiano en algo mágico.
+    </p>
+
+</section>
+
+
+<!-- SLIDER -->
+
+<section class="slider-section">
+
+    <div id="hechizoCarousel"
+         class="carousel slide carousel-fade"
+         data-bs-ride="carousel">
+
+        <!-- INDICADORES -->
+
+        <div class="carousel-indicators">
+
+            <button type="button"
+                    data-bs-target="#hechizoCarousel"
+                    data-bs-slide-to="0"
+                    class="active">
+            </button>
+
+            <button type="button"
+                    data-bs-target="#hechizoCarousel"
+                    data-bs-slide-to="1">
+            </button>
+
+            <button type="button"
+                    data-bs-target="#hechizoCarousel"
+                    data-bs-slide-to="2">
+            </button>
+
+            <button type="button"
+                    data-bs-target="#hechizoCarousel"
+                    data-bs-slide-to="3">
+            </button>
+
+            <button type="button"
+                    data-bs-target="#hechizoCarousel"
+                    data-bs-slide-to="4">
+            </button>
+
+        </div>
+
+        <!-- ITEMS -->
+
+        <div class="carousel-inner rounded-5 overflow-hidden">
+
+            <!-- SOBRE NOSOTROS -->
+
+            <div class="carousel-item">
+
+                <a asp-controller="Home"
+                       asp-action="Index">
+
+                    <img src="~/img/slide2.jpg"
+                         class="d-block w-100 slider-img" />
+
+                    <div class="carousel-caption">
+
+                        <h2>Sobre Nosotros</h2>
+
+                        <p>
+                            Donde lo cotidiano se vuelve hechizo.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- PRODUCTOS -->
+
+            <div class="carousel-item">
+
+                <a asp-controller="Producto"
+                       asp-action="Index">
+
+                    <img src="~/img/slide4.jpg"
+                         class="d-block w-100 slider-img" />
+
+                    <div class="carousel-caption">
+
+                        <h2>Nuestro Menú</h2>
+
+                        <p>
+                            Descubre sabores artesanales y encantados.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- COCTELERÍA -->
+
+            <div class="carousel-item">
+
+                <a asp-controller="Producto"
+                       asp-action="Index">
+
+                    <img src="~/img/slide5.jpg"
+                         class="d-block w-100 slider-img" />
+
+                    <div class="carousel-caption">
+
+                        <h2>Coctelería</h2>
+
+                        <p>
+                            Bebidas encantadas preparadas especialmente para ti.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <!-- EVENTOS -->
+
+            <div class="carousel-item">
+
+                <a asp-controller="Home"
+                       asp-action="Index">
+
+                    <img src="~/img/slide3.jpg"
+                         class="d-block w-100 slider-img" />
+
+                    <div class="carousel-caption">
+
+                        <h2>Eventos</h2>
+
+                        <p>
+                            Tarot, noches mágicas y experiencias únicas.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- MERCH -->
+
+            <div class="carousel-item active">
+
+                <a asp-controller="Home"
+                       asp-action="Index">
+
+                    <img src="~/img/slide1.jpg"
+                         class="d-block w-100 slider-img" />
+
+                    <div class="carousel-caption">
+
+                        <h2>Merch</h2>
+
+                        <p>
+                            Productos únicos inspirados en la magia.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>           
+        </div>
+
+        <!-- CONTROLES -->
+
+        <button class="carousel-control-prev"
+                type="button"
+                data-bs-target="#hechizoCarousel"
+                data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+        </button>
+
+        <button class="carousel-control-next"
+                type="button"
+                data-bs-target="#hechizoCarousel"
+                data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+        </button>
 
     </div>
 
