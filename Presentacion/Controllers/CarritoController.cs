@@ -29,7 +29,13 @@ namespace Presentacion.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> Pagar()
+        public IActionResult Pagar()
+        {
+            return View("Checkout");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProcesarPago()
         {
             var client = new HttpClient();
 
@@ -47,11 +53,13 @@ namespace Presentacion.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                TempData["mensaje"] = "Pago realizado con éxito";
+                TempData["mensaje"] =
+                    "✦ Pago realizado con éxito";
             }
             else
             {
-                TempData["mensaje"] = "Error al procesar el pago";
+                TempData["mensaje"] =
+                    "Error al procesar el pago";
             }
 
             return RedirectToAction("Index");
