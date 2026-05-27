@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/hechizo.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Presentacion.styles.css" asp-append-version="true" />
@@ -123,11 +124,44 @@
             @RenderBody()
         </main>
     
+    <footer class="footer-hechizo">
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - Presentacion - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container text-center">
+
+            <h4 class="footer-title">
+                Síguenos en nuestras redes
+            </h4>
+
+            <div class="social-icons">
+
+                <a href="https://instagram.com"
+                   target="_blank">
+                    <i class="bi bi-instagram"></i>
+                </a>
+
+                <a href="https://facebook.com"
+                   target="_blank">
+                    <i class="bi bi-facebook"></i>
+                </a>
+
+                <a href="https://wa.me/573113650820"
+                   target="_blank">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+
+                <a href="https://linkedin.com"
+                   target="_blank">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+
+            </div>
+
+            <p class="footer-copy">
+                ✦ Hechizo Café © 2026 ✦
+            </p>
+
         </div>
+
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
