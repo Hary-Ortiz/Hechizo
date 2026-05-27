@@ -12,7 +12,7 @@ namespace Presentacion.Controllers
             _http = new HttpClient();
 
             // MICRO SERVICIO CARRITO
-            _http.BaseAddress = new Uri("http://carrito:7185/");
+            _http.BaseAddress = new Uri("http://localhost:5001/");
         }
 
         public async Task<IActionResult> Index()
@@ -47,7 +47,7 @@ namespace Presentacion.Controllers
 
             // MICRO SERVICIO PAGOS
             var response = await client.PostAsJsonAsync(
-                "http://pagos:8080/api/pago/procesar",
+                "http://localhost:5002/api/pago/procesar",
                 pago
             );
 
