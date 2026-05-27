@@ -1,27 +1,28 @@
-﻿using System;
+﻿using Hechizo.Core.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dominio.Entidades
+namespace Hechizo.Core.Entidades
 {
     /// <summary>
     /// Método que define la clase Reserva
     /// </summary>
-    
+
     public class Reserva
     {
-       
+
         public int Id { get; set; }
         public DateTime Fecha { get; set; }
 
         public int NumeroPersonas { get; set; }
 
-       
+
         public string? Observaciones { get; set; }
 
         public EstadoReserva Estado { get; set; }
 
-        
+
         public int ClienteId { get; set; }
 
         public Cliente Cliente { get; set; }

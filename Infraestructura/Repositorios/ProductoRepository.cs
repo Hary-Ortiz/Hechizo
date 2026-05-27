@@ -1,4 +1,4 @@
-﻿using Dominio.Entidades;
+﻿using Hechizo.Core.Entidades;
 using Dominio.Interfaces;
 using Infraestructura.Data;
 using Microsoft.EntityFrameworkCore;

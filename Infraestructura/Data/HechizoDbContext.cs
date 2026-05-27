@@ -1,4 +1,5 @@
-﻿using Dominio.Entidades;
+﻿using Hechizo.Core.entidades;
+using Hechizo.Core.Entidades;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infraestructura.Data

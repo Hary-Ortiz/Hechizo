@@ -1,4 +1,4 @@
-﻿using Dominio.Entidades;
+﻿using Hechizo.Core.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Text;

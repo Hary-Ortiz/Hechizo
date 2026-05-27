@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dominio.Entidades
+namespace Hechizo.Core.entidades
 {
     /// <summary>
     /// Método que define los detalles del pedido 

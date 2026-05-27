@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Dominio.Entidades
+namespace Hechizo.Core.Entidades
 {
     /// <summary>
     /// Método que define la clase Categoría

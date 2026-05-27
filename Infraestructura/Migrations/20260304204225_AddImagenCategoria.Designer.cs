@@ -25,7 +25,7 @@ namespace Infraestructura.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Dominio.Entidades.Categoria", b =>
+            modelBuilder.Entity("Hechizo.Core.Entidades.Categoria", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -51,7 +51,7 @@ namespace Infraestructura.Migrations
                     b.ToTable("Categorias");
                 });
 
-            modelBuilder.Entity("Dominio.Entidades.Cliente", b =>
+            modelBuilder.Entity("Hechizo.Core.Entidades.Cliente", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -87,7 +87,7 @@ namespace Infraestructura.Migrations
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("Dominio.Entidades.DetallePedido", b =>
+            modelBuilder.Entity("Hechizo.Core.Entidades.DetallePedido", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -114,7 +114,7 @@ namespace Infraestructura.Migrations
                     b.ToTable("DetallesPedido");
                 });
 
-            modelBuilder.Entity("Dominio.Entidades.Pedido", b =>
+            modelBuilder.Entity("Hechizo.Core.Entidades.Pedido", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -141,7 +141,7 @@ namespace Infraestructura.Migrations
                     b.ToTable("Pedidos");
                 });
 
-            modelBuilder.Entity("Dominio.Entidades.Producto", b =>
+            modelBuilder.Entity("Hechizo.Core.Entidades.Producto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -174,7 +174,7 @@ namespace Infraestructura.Migrations
                     b.ToTable("Productos");
                 });
 
-            modelBuilder.Entity("Dominio.Entidades.Reserva", b =>
+            modelBuilder.Entity("Hechizo.Core.Entidades.Reserva", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -204,17 +204,17 @@ namespace Infraestructura.Migrations
                     b.ToTable("Reservas");
                 });
 
-            modelBuilder.Entity("Dominio.Entidades.DetallePedido", b =>
+            modelBuilder.Entity("Hechizo.Core.Entidades.DetallePedido", b =>
                 {
-                    b.HasOne("Dominio.Entidades.Pedido", null)
+                    b.HasOne("Hechizo.Core.Entidades.Pedido", null)
                         .WithMany("Detalles")
                         .HasForeignKey("PedidoId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Dominio.Entidades.Pedido", b =>
+            modelBuilder.Entity("Hechizo.Core.Entidades.Pedido", b =>
                 {
-                    b.HasOne("Dominio.Entidades.Cliente", "Cliente")
+                    b.HasOne("Hechizo.Core.Entidades.Cliente", "Cliente")
                         .WithMany()
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -223,9 +223,9 @@ namespace Infraestructura.Migrations
                     b.Navigation("Cliente");
                 });
 
-            modelBuilder.Entity("Dominio.Entidades.Reserva", b =>
+            modelBuilder.Entity("Hechizo.Core.Entidades.Reserva", b =>
                 {
-                    b.HasOne("Dominio.Entidades.Cliente", "Cliente")
+                    b.HasOne("Hechizo.Core.Entidades.Cliente", "Cliente")
                         .WithMany()
                         .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -234,7 +234,7 @@ namespace Infraestructura.Migrations
                     b.Navigation("Cliente");
                 });
 
-            modelBuilder.Entity("Dominio.Entidades.Pedido", b =>
+            modelBuilder.Entity("Hechizo.Core.Entidades.Pedido", b =>
                 {
                     b.Navigation("Detalles");
                 });

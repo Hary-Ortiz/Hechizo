@@ -1,5 +1,5 @@
 ﻿using Aplicacion.Interfaces;
-using Dominio.Entidades;
+using Hechizo.Core.Entidades;
 using Dominio.Interfaces;
 
 namespace Aplicacion.Servicios
