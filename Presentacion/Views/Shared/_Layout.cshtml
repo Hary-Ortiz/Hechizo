@@ -95,7 +95,8 @@
                
     </header>
     
-        <main role="main">
+    <main role="main">
+
         <div class="accessibility-panel">
 
             <button id="increaseFont"
@@ -103,6 +104,7 @@
                     title="Aumentar texto">
 
                 A+
+
             </button>
 
             <button id="decreaseFont"
@@ -110,6 +112,7 @@
                     title="Disminuir texto">
 
                 A-
+
             </button>
 
             <button id="toggleContrast"
@@ -117,13 +120,49 @@
                     title="Modo alto contraste">
 
                 ✦
+
             </button>
 
         </div>
-            @RenderBody()
-        </main>
-    
 
+        @if (ViewData["Breadcrumb"] != null)
+        {
+            <div class="container">
+
+                <nav aria-label="breadcrumb"
+                     class="breadcrumb-hechizo">
+
+                    <ol class="breadcrumb">
+
+                        <li class="breadcrumb-item">
+
+                            <a asp-controller="Home"
+                               asp-action="Index">
+
+                                Inicio
+
+                            </a>
+
+                        </li>
+
+                        <li class="breadcrumb-item active"
+                            aria-current="page">
+
+                            @ViewData["Breadcrumb"]
+
+                        </li>
+
+                    </ol>
+
+                </nav>
+
+            </div>
+        }
+
+        @RenderBody()
+
+    </main>
+    
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2026 - Presentacion - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
