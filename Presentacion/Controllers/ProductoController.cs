@@ -55,7 +55,7 @@ namespace Presentacion.Controllers
             using var client = new HttpClient();
 
             await client.PostAsJsonAsync(
-                "https://localhost:7185/api/carrito/agregar",
+                "http://localhost:5001/api/carrito/agregar",
                 carritoItem
             );
 
